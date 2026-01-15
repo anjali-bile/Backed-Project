@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Line Hospital Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+      padding-top: 50px;
+    }
+
+    header {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 40px;
+      margin: 20px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #0077b6;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.6rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #0077b6;
+      bottom: -10px;
+      left: 0;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .service {
+      width: 22%;
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .service:hover {
+      background-color: #0099cc;
+      color: white;
+    }
+
+    .service h3 {
+      color: #0b0a09;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .service:hover h3 {
+      color: white;
+    }
+
+    .service h3::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service:hover h3::after {
+      transform: scaleX(1);
+    }
+
+    .service ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      text-align: left;
+    }
+
+    .service ul li {
+      margin: 6px 0;
+      font-size: 0.85rem;
+    }
+
+    .service-icon {
+      width: 100px;
+      height: 100px;
+      background-color: #0077b6;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-icon img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .about-contact-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      background-color: #f9f9f9;
+      padding: 40px 20px;
+      border-radius: 10px;
+    }
+
+    .about-section,
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-section h2,
+    .contact-info h2 {
+      color: #0077b6;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .about-section p,
+    .contact-info p {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .contact-info a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+      margin-top: 40px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .service {
+        width: 100%;
+      }
+
+      .about-contact-section {
+        flex-direction: column;
+      }
+
+      .about-section h2,
+      .contact-info h2 {
+        text-align: center;
+      }
+
+      .contact-info {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to Life Line Hospital</h1>
+  <p>Your Health is Our Priority</p>
+</header>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <p>
+  Life Line Hospital is a 31-bed multi-speciality hospital offering super-speciality care. We are equipped with a dedicated team of medical professionals who provide world-class medical services. Our hospital is supported with advanced diagnostic facilities such as Digital X-Ray, ECG, Ventilators, and Centralized Oxygen facilities in the ICU, ensuring speedy and healthy recovery. Our surgeries are conducted by top-tier specialists in their fields.
+   </p>
+
+  <div class="services-container">
+    <!-- ICU Service -->
+    <div class="service">
+      <div class="service-icon">
+        <img src="https://img.freepik.com/free-psd/labour-day-celebration-with-doctor-icon_23-2150298717.jpg?semt=ais_hybrid&w=740" alt="ICU Icon"/>
+      </div>
+      <h3>ICU</h3>
+      <ul>
+        <li>Ventilator</li>
+        <li>Multipara Monitors</li>
+        <li>Complete Vaccination</li>
+        <li>ICU Bed</li>
+        <li>Syringe Pump, Central Oxygen System</li>
+        <li>ECG</li>
+        <li>Well-Trained Staff</li>
+      </ul>
+    </div>
+
+    <!-- Surgical Service -->
+    <div class="service">
+      <div class="service-icon">
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/first-aid-kit-3d-icon-download-in-png-blend-fbx-gltf-file-formats--medical-box-pharmacy-pack-healthcare-icons-7703554.png?f=webp" alt="Surgical Icon"/>
+      </div>
+      <h3>Surgical</h3>
+      <ul>
+        <li>Brain Surgery</li>
+        <li>Laparoscopic Surgery</li>
+        <li>Stapler Piles Surgery</li>
+        <li>Hernia Surgery</li>
+        <li>Hydrocele, Ovary Surgery</li>
+        <li>Ear, Nose, Throat Operations</li>
+        <li>Advanced Anaesthesia Machine (Datex Omeda)</li>
+      </ul>
+    </div>
+
+    <!-- Accidental Service -->
+    <div class="service">
+      <div class="service-icon">
+        <img src="https://cdn.pixabay.com/photo/2016/09/30/06/53/kit-1704526_1280.png" alt="Accidental Icon"/>
+      </div>
+      <h3>Accidental</h3>
+      <ul>
+        <li>Fracture Treatment</li>
+        <li>Orthoscopy</li>
+        <li>Spinal Cord Injury Operation</li>
+        <li>Physiotherapy Department</li>
+      </ul>
+    </div>
+
+    <!-- Multispeciality Service -->
+    <div class="service">
+      <div class="service-icon">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYBzs-GkF255lBIc9I372JlqhrrJaTg8E2aw&s" alt="Multispeciality Icon"/>
+      </div>
+      <h3>Multispeciality</h3>
+      <ul>
+        <li>Neuro Surgery</li>
+        <li>Neuro Physician</li>
+        <li>Hand Surgeon</li>
+        <li>Plastic Surgery</li>
+        <li>Laparoscopic Surgery</li>
+        <li>Joint Replacement</li>
+        <li>Pediatric Surgery</li>
+        <li>Arthroplasty Surgery</li>
+        <li>Cardiologist</li>
+        <li>Complete Health Check-up</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="about-contact-section">
+  <div class="about-section">
+    <h2>About Us</h2>
+    <p>
+      Life Line Hospital is a 31-bed multi-speciality hospital offering super-speciality care. We are equipped with a dedicated team of medical professionals who provide world-class medical services. Our hospital is supported with advanced diagnostic facilities such as Digital X-Ray, ECG, Ventilators, and Centralized Oxygen facilities in the ICU, ensuring speedy and healthy recovery. Our surgeries are conducted by top-tier specialists in their fields.
+    </p>
+  </div>
+
+  <div class="contact-info">
+    <h2>Our Address</h2>
+    <p>Sector No-1, Near Hotel Haveli,</p>
+    <p>Pune-Nashik Highway, Indrayaninagar Pradhikaran, Bhosari, Pune (Maharashtra) - 411 039</p>
+    <p>
+  <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon" style="width: 20px; vertical-align: middle; margin-right: 8px;">
+  Phone: <a href="tel:+912027230021">020-27230021</a>
+</p>
+<p>
+  <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon" style="width: 20px; vertical-align: middle; margin-right: 8px;">
+  Email: <a href="mailto:contact@lifelinehospital.in">contact@lifelinehospital.in</a>
+</p>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"/>
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"/>
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"/>
+      </a>
+      <a href="https://www.google.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"/>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Life Line Hospital. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

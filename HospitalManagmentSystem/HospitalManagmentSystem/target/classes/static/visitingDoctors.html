@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visiting Doctors - Lifeline Hospital</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+    }
+
+    h1, p {
+      text-align: center;
+      color: #003366;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      background-color: #fff;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #003366;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    img.doctor-photo {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 280px;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .footer-column h3 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    .footer-column p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 5px 0;
+      color: white;
+    }
+
+    .address-icon {
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    .contact-info img {
+      width: 18px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      table {
+        font-size: 12px;
+      }
+
+      th, td {
+        padding: 8px;
+      }
+
+      img.doctor-photo {
+        width: 40px;
+        height: 40px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-column {
+        margin: 20px 0;
+      }
+    }
+   .social-media {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .social-media {
+    gap: 10px;
+  }
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <h1>Visiting Doctors - Lifeline Hospital</h1>
+  <p>
+    Lifeline Hospital has a dedicated team of full-time and OPD Doctors from major specialties such as Medicine, Surgery, Orthopaedics, and Paediatrics. <br>
+    Below is the list of doctors providing their services to our hospital.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sr. No.</th>
+        <th>Photo</th>
+        <th>Doctor's Name</th>
+        <th>Education (Degree)</th>
+        <th>Superspecialization</th>
+        <th>Registration Number</th>
+        <th>Visiting Day</th>
+        <th>Morning Time</th>
+        <th>Evening Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><img src="https://media.istockphoto.com/id/1327024466/photo/portrait-of-male-doctor-in-white-coat-and-stethoscope-standing-in-clinic-hall.jpg?s=612x612&w=0&k=20&c=49wqOwwuonk9f8NACL7M_5RosqQPFwJ8-dpmeo9AvQw=" alt="Dr. Sanjay Salve" class="doctor-photo"></td><td>Dr. Sanjay Salve</td><td>M.B.B.S., D Ortho A.F.I.H.</td><td>Orthopedic Surgeon</td><td>87321</td><td>Tue, Thu, Sat</td><td>10:30 AM - 03:00 PM</td><td>07:00 PM - 09:30 PM</td></tr>
+      <tr><td>2</td><td><img src="https://t4.ftcdn.net/jpg/07/07/89/33/360_F_707893394_5DEhlBjWOmse1nyu0rC9T7ZRvsAFDkYC.jpg" alt="Dr. Sanjay Hire" class="doctor-photo"></td><td>Dr. Sanjay Hire</td><td>M.B.B.S., D Ortho</td><td>Orthopedic Surgeon</td><td>2001072483</td><td>Mon, Wed, Fri</td><td>10:30 AM - 03:00 PM</td><td>07:00 PM - 09:30 PM</td></tr>
+      <tr><td>3</td><td><img src="https://static.vecteezy.com/system/resources/thumbnails/046/680/177/small/an-pakistani-male-doctor-on-isolated-transparent-background-png.png" alt="Dr. Deepak Shinde" class="doctor-photo"></td><td>Dr. Deepak Shinde</td><td>M.D. Anesthetist</td><td>Anesthetist</td><td>87452</td><td>Mon - Sat</td><td>08:00 AM - 11:00 PM</td><td>05:00 PM - 07:00 PM</td></tr>
+      <tr><td>4</td><td><img src="https://png.pngtree.com/png-vector/20240528/ourmid/pngtree-indian-doctor-woman-smiling-at-camera-png-image_12531120.png" alt="Dr. Sayali Ganjale" class="doctor-photo"></td><td>Dr. Sayali Ganjale</td><td>M.D. Medicine</td><td>Physician</td><td>13/47089</td><td>Mon - Sat</td><td>10:30 AM - 12:30 PM</td><td>--</td></tr>
+      <tr><td>5</td><td><img src="https://t4.ftcdn.net/jpg/02/69/98/99/360_F_269989951_9Gf7PWaRtrpm2EochO3D5WVn22sFZbNZ.jpg" alt="Dr. Amar Patil" class="doctor-photo"></td><td>Dr. Amar Patil</td><td>M.D. Medicine</td><td>Physician</td><td>2016/10/4366</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>6</td><td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAIiy3gDPTVKHgQYlPsxAEobTDxla3siA_1Q&s" alt="Dr. Abhijit Kudale" class="doctor-photo"></td><td>Dr. Abhijit Kudale</td><td>M.B.B.S., DCH</td><td>Pediatric Consultant</td><td>2009062698</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>7</td><td><img src="https://www.shutterstock.com/image-photo/indian-mature-male-doctor-crossed-260nw-1686436294.jpg" alt="Dr. Vinit Kolhe" class="doctor-photo"></td><td>Dr. Vinit Kolhe</td><td>M.S. Surgeon</td><td>Gen & Laparoscopy Surgeon</td><td>71758</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>8</td><td><img src="https://www.shutterstock.com/image-photo/medical-concept-indian-beautiful-female-600nw-1635029716.jpg" alt="Dr. Kavita Wakhare" class="doctor-photo"></td><td>Dr. Pooja Wakhare</td><td>M.D. Nephrologist</td><td>Nephrologist</td><td>2010051608</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>9</td><td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmnXsxSRZglfbkRROU3P9nObZGw3hjx8zOJw" alt="Dr. Bhagirath More" class="doctor-photo"></td><td>Dr. Bhagirath More</td><td>MCH. Neurosurgery</td><td>Neuro Surgeon</td><td>2008041314</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>10</td><td><img src="https://www.shutterstock.com/image-photo/medical-concept-indian-beautiful-female-600nw-1635029716.jpg" alt="Dr. Pooja Dhaigude" class="doctor-photo"></td><td>Dr. Bharati Dhaigude</td><td>MS. Gen. Surgeon</td><td>General Surgeon</td><td>85706</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>11</td><td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStVfVKC_CaPBQAhcT0TnHDAeSrj6m92ROsGw" alt="Dr. Arvind Patil" class="doctor-photo"></td><td>Dr. Arvind Patil</td><td>ENT Surgeon</td><td>ENT Surgeon</td><td>89699</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>12</td><td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBX9uJgyISJsj8fFBS98SNb4VjZiMLYfgGqA" alt="Dr. Amit Mule" class="doctor-photo"></td><td>Dr. Amit Mule</td><td>DNB Gen. Surgery, F.C.P.S. (Surgery)</td><td>Plastic Surgeon</td><td>2007041104</td><td>On Call</td><td>--</td><td>--</td></tr>
+      <tr><td>13</td><td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVLEg7pE-wP8dqEcOXOop9Jv3YjocodL4UkQ" alt="Dr. Sandip Borse" class="doctor-photo"></td><td>Dr. Sandip Borse</td><td>MCH Neuro</td><td>Neuro Physician</td><td>--</td><td>On Call</td><td>10:30 AM - 03:00 PM</td><td>07:00 PM - 09:30 PM</td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+  <div class="footer-column">
+    <h3>About Us</h3>
+    <p>
+      Lifeline Hospital - the 31 bed multi-speciality hospital with super speciality care is at your service. 
+      Round the clock the specialized team of it is bound to render the world class medical services. 
+      Surrounded with Digital X-Ray, ECG, VENTILATORS, Centralized Oxygen facilities in its ICU boost speedy 
+      and healthy recovery. Surgeries are done here by the top most speciality surgeons.
+    </p>
+
+    <!-- Social Media Icons -->
+    <div class="social-media">
+      <a href="https://twitter.com" target="_blank">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9SAOkSMhoCGVK3b0bQRgIHnZamjNo_cVjcA&s" alt="Twitter" class="social-icon">
+</a>
+      <a href="https://facebook.com" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="social-icon">
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+      </a>
+      <a href="https://plus.google.com" target="_blank">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyAzgLs4C8wzj7OXS5I4e2r_ZGarlAlq5_xA&s" alt="Google Plus" class="social-icon">
+      </a>
+    </div>
+  </div>
+  <div class="footer-column">
+    <h3>Our Address</h3>
+    <p><img class="address-icon" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location Icon"> Sector No-1, Near Hotel Haveli,</p>
+    <p>Solapur-Miraj Highway,</p>
+    <p>Indrayaninagar Pradhikaran,</p>
+    <p>Sangola, Solapur (Maharashtra) - 413304.</p>
+    <div class="contact-info">
+      <p><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon"> <strong>Phone:</strong> 020-27230021</p>
+      <p><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon"> <strong>Email:</strong> contact@lifelinehospital.in</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

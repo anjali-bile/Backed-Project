@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Help Center</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/14/03/05/surgery-1822458_1280.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    #leftPanel {
+      width: 100%;
+      background-color: rgba(241, 241, 241, 0.8);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    #chat {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+
+    .bot, .user {
+      margin: 10px 0;
+    }
+
+    .bot {
+      color: #fc5800;
+      font-weight: bold;
+    }
+
+    .question-button {
+      display: block;
+      background-color: #e0f2f1;
+      border: 1px solid #1a1b1b;
+      padding: 10px;
+      border-radius: 4px;
+      margin: 5px 0;
+      cursor: pointer;
+      max-width: 300px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .question-button:hover {
+      background-color: #b2dfdb;
+    }
+
+    .yesno {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .yesno button {
+      padding: 8px 20px;
+      cursor: pointer;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .yesno button:hover {
+      background-color: #004d40;
+    }
+
+    #userInput {
+      display: flex;
+      gap: 10px;
+    }
+
+    #inputField {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #sendBtn {
+      padding: 10px 20px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #sendBtn:hover {
+      background-color: #004d40;
+    }
+
+    /* 👋 Waving hand animation */
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60% { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .wave-hand {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      animation: wave 2s infinite;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div id="leftPanel">
+    <div id="chat"></div>
+
+    <div id="userInput">
+      <input type="text" id="inputField" placeholder="Type your question...">
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "What are your visiting hours?", a: "Visiting hours are from 10:00 AM to 12:00 PM and 4:00 PM to 6:00 PM every day." },
+      { q: "How can I book an appointment?", a: "You can book an appointment online through our website or call us at (123) 456-7890." },
+      { q: "Do you accept walk-in patients?", a: "Yes, we accept walk-in patients between 9:00 AM and 5:00 PM." },
+      { q: "What specialties are available?", a: "We offer Cardiology, Neurology, Pediatrics, Orthopedics, Dermatology, and General Medicine." },
+      { q: "Do you offer online consultations?", a: "Yes, we offer online video consultations with select doctors." },
+      { q: "How can I get my medical records?", a: "Request them through the patient portal or contact our records department." },
+      { q: "How can I contact emergency?", a: "Call our 24/7 emergency helpline at (123) 999-9999 or visit the emergency room." }
+    ];
+
+    const greetings = ["hi", "hello", "howdy", "what's up", "whatsup", "hey", "good morning", "good afternoon", "good evening"];
+    const feelings = ["how are you", "are you okay", "how's it going", "are you ok", "how do you feel"];
+    const identity = ["who are you", "what is your name", "what are you", "tell me about yourself", "introduce yourself"];
+
+    function appendBotMessage(message) {
+      $("#chat").append(`<div class="bot">Bot: ${message}</div>`);
+      $("#chat").scrollTop($("#chat")[0].scrollHeight);
+    }
+
+    function appendUserMessage(message) {
+      $("#chat").append(`<div class="user"><strong>You:</strong> ${message}</div>`);
+      $("#chat").scrollTop($("#chat")[0].scrollHeight);
+    }
+
+    function showQuestions() {
+      appendBotMessage("Please choose a question:");
+      questions.forEach((item, index) => {
+        $("#chat").append(`<div class="question-button" onclick="answerQuestion(${index})">${item.q}</div>`);
+      });
+    }
+
+    function answerQuestion(index) {
+      const question = questions[index];
+      appendUserMessage(question.q);
+      appendBotMessage(question.a);
+      askHelpAgain();
+    }
+
+    function askHelpAgain() {
+      appendBotMessage("Do you need more help?");
+      $("#chat").append(`
+        <div class="yesno">
+          <button onclick="handleYes()">Yes</button>
+          <button onclick="handleNo()">No</button>
+        </div>
+      `);
+    }
+
+    function handleYes() {
+      $(".yesno").remove();
+      showQuestions();
+    }
+
+    function handleNo() {
+      $(".yesno").remove();
+      appendBotMessage("Thank you for using our Help Center! 😊");
+    }
+
+    function handleUserInput(input) {
+      const lowerInput = input.toLowerCase().trim();
+      appendUserMessage(input);
+
+      if (greetings.includes(lowerInput)) {
+        appendBotMessage("Hello! How can I assist you today?");
+      } else if (feelings.includes(lowerInput)) {
+        appendBotMessage("I'm just a helpful bot, but I'm doing great! Thanks for asking.");
+      } else if (identity.includes(lowerInput)) {
+        appendBotMessage("I am your virtual assistant here to help you with hospital-related information.");
+      } else {
+        let matched = false;
+        questions.forEach(q => {
+          if (lowerInput.includes(q.q.toLowerCase().split(" ")[0])) {
+            appendBotMessage(q.a);
+            matched = true;
+          }
+        });
+
+        if (!matched) {
+          appendBotMessage("Sorry, I didn't understand that. Please choose a question from the list or ask differently.");
+        }
+      }
+
+      askHelpAgain();
+    }
+
+    $(document).ready(function () {
+      appendBotMessage(`<span class="wave-hand">👋</span> Hello! Welcome to the Hospital Help Center.`);
+      showQuestions();
+
+      $("#sendBtn").click(function () {
+        const input = $("#inputField").val().trim();
+        if (input) {
+          handleUserInput(input);
+          $("#inputField").val("");
+        }
+      });
+
+      $("#inputField").keypress(function (e) {
+        if (e.which === 13) {
+          $("#sendBtn").click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

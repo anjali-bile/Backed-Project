@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Appointment Form with Background Image</title>
+  <style>
+    /* --- your existing CSS (unchanged) --- */
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://cdn.pixabay.com/photo/2021/10/11/17/37/doctor-6701410_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 20px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    .frame {
+      position: relative;
+      background: rgba(255, 255, 255, 0.9);
+      width: 720px;
+      height: 450px;
+      border-radius: 12px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      padding: 10px 20px;
+      overflow: hidden;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 6px 0;
+      font-weight: 700;
+      color: #4b3f72;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    header {
+      border-bottom: 1px solid #ccc;
+    }
+
+    footer {
+      border-top: 1px solid #ccc;
+      margin-top: auto;
+    }
+
+    form {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 48px);
+      gap: 12px 18px;
+      align-items: center;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #5a4d8b;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    select {
+      width: 100%;
+      padding: 6px 8px;
+      font-size: 13px;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #7f67be;
+      box-shadow: 0 0 5px rgba(127, 103, 190, 0.5);
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .radio-group label {
+      font-weight: 500;
+      cursor: pointer;
+      color: #6b5bbd;
+      margin: 0;
+    }
+
+    input[type="radio"] {
+      cursor: pointer;
+    }
+
+    .radio-container {
+      width: 100%;
+    }
+
+    textarea#problemdescription {
+      grid-column: span 4;
+      resize: vertical;
+      min-height: 50px;
+      padding: 8px 10px;
+      font-size: 13px;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      grid-column: span 4;
+      padding: 10px 0;
+      background: #6b5bbd;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 5px 10px rgba(107, 91, 189, 0.6);
+    }
+
+    button:hover {
+      background: #544a93;
+      box-shadow: 0 7px 14px rgba(84, 74, 147, 0.8);
+    }
+
+    .left-text {
+      position: absolute;
+      left: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+      color: rgb(255, 255, 255);
+      font-size: 20px;
+      font-weight: 600;
+      z-index: 1;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      line-height: 1.5;
+    }
+
+    #responseMessage {
+      text-align: center;
+      padding:10px;
+      font-weight: bold;
+      color: #b33c3c;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-text">
+    <b>
+      👋 Welcome!<br />
+      😊 We're glad you're here.<br />
+      📝 Please take a moment to fill out your appointment details.<br />
+      ❤️ Your health is our priority.
+    </b>
+  </div>
+
+  <div class="frame">
+    <header>
+      <h3>Clinic Appointment Booking</h3>
+    </header>
+
+    <div id="responseMessage"></div>
+
+    <form id="appointmentForm">
+      <!-- Form fields unchanged -->
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div>
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="">--Select--</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required title="10 digit number" />
+      </div>
+
+      <div>
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" required />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="radio-container">
+        <label>Applied Before?</label>
+        <div class="radio-group">
+          <input type="radio" id="appliedYes" name="appliedBefore" value="true" required />
+          <label for="appliedYes">Yes</label>
+          <input type="radio" id="appliedNo" name="appliedBefore" value="false" />
+          <label for="appliedNo">No</label>
+        </div>
+      </div>
+
+      <div>
+        <label for="appointmentReason">Reason</label>
+        <input type="text" id="appointmentReason" name="appointmentReason" required />
+      </div>
+
+      <div>
+        <label for="bithdate">Birth Date</label>
+        <input type="date" id="bithdate" name="bithdate" required />
+      </div>
+
+      <div>
+        <label for="doctorId">Doctor ID</label>
+        <input type="number" id="doctorId" name="doctorId" min="1" required />
+      </div>
+
+      <div>
+        <label for="appointmentDate">Appointment Date</label>
+        <input type="date" id="appointmentDate" name="appointmentDate" required />
+      </div>
+
+      <div>
+        <label for="appointmentStartTime">Start Time</label>
+        <input type="time" id="appointmentStartTime" name="appointmentStartTime" required />
+      </div>
+
+      <div>
+        <label for="appointmentEndTime">End Time</label>
+        <input type="time" id="appointmentEndTime" name="appointmentEndTime" required />
+      </div>
+
+      <div>
+        <label for="paymentMode">Payment Mode</label>
+        <select id="paymentMode" name="paymentMode" required>
+          <option value="">--Select--</option>
+          <option value="PhonePe">PhonePe</option>
+          <option value="GooglePay">Google Pay</option>
+          <option value="Cash">Cash</option>
+          <option value="Card">Card</option>
+        </select>
+      </div>
+
+      <div></div><div></div>
+
+      <textarea id="problemdescription" name="problemdescription" placeholder="Problem Description (required)" required></textarea>
+
+      <button type="submit">Submit Appointment</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("appointmentForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+      const params = new URLSearchParams(formData);
+
+      fetch("/scheduleAppointment", {
+        method: "POST",
+        body: params
+      })
+      .then(response => response.text())
+      .then(message => {
+        const messageBox = document.getElementById("responseMessage");
+        messageBox.innerText = message;
+        messageBox.style.display = "block";
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+    });
+  </script>
+</body>
+</html>

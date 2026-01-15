@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Get In Touch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background: #f2f4f6;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer_get_touch_inner {
+      width: 95%;
+      max-width: 1140px;
+      display: grid;
+      grid-template-columns: 70% 30%;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .get_form_inner {
+      padding: 50px 40px;
+      background: #fff;
+    }
+
+    .get_form_inner_text h3 {
+      color: #333;
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    input,
+    textarea {
+      border: 1px solid #dbdbdb;
+      border-radius: 2px;
+      color: #333;
+      padding: 10px 20px;
+      width: 100%;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    .grid-50-50 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .grid-full {
+      margin: 20px 0;
+    }
+
+    input[type="submit"] {
+      display: inline-block;
+      font-size: 16px;
+      text-transform: uppercase;
+      background: transparent;
+      border: 2px solid #103e65;
+      font-weight: 500;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #103e65;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #f85508;
+      border-color: #f85508;
+      color: #fff;
+    }
+
+    .get_say_form {
+      background: #103e65;
+      color: white;
+      padding: 45px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .get_say_info_sec {
+      list-style: none;
+    }
+
+    .get_say_info_sec>li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .get_say_info_sec>li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-top: 28px;
+    }
+
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #103e65;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    /* Success message style */
+    #success-message {
+      display: none;
+      background-color: #d4edda;
+      color: #155724;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: 1px solid #c3e6cb;
+    }
+
+    @media (max-width: 768px) {
+      .footer_get_touch_inner {
+        grid-template-columns: 1fr;
+      }
+
+      .get_say_form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="footer_get_touch_inner">
+      <div class="get_form_inner">
+        <h2>Get In Touch</h2>
+
+        <!-- Success message container -->
+        <div id="success-message">Your message has been sent successfully!</div>
+
+        <form method="post" action="/submitContactUs">
+          <div class="grid-50-50">
+            <input type="text" name="firstName" placeholder="First Name" required>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone/Skype" required>
+          </div>
+          <div class="grid-full">
+            <textarea name="message" placeholder="Compose Message" rows="6" required></textarea>
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+      <div class="get_say_form">
+        <div>
+          <ul class="get_say_info_sec">
+            <li><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="20"><a href="mailto:info@example.com">info@example.com</a></li>
+            <li><img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" width="20"><a href="tel:+919876543210">+91 9876543210</a></li>
+            <li><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="20"><a href="#">YourSkypeID</a></li>
+            <p>
+              🚨 <strong>Emergency</strong><br>
+              📞 +91 20 2621 7305<br>
+              📞 +91 20 6603 7305<br><br>
+
+              🚑 <strong>Ambulance</strong><br>
+              📞 +91 94210 18970<br>
+              📞 +91 98509 18420<br><br>
+
+              🩸 <strong>Blood Bank</strong><br>
+              📞 +91 20 6603 7324<br>
+              📞 +91 20 2621 7324
+            </p>
+          </ul>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.facebook.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+          <a href="https://www.twitter.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+          <a href="https://www.google.com"><img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Your Company. All rights reserved.
+  </footer>
+
+  <script>
+    // Show success message if URL has ?success=true
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      document.getElementById('success-message').style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

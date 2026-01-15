@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: HospitalManagmentSystem
+  datasource:
+    url: jdbc:mysql://localhost:3306/hospital?createDatabaseIfNotExist=true
+    username: root
+    password: anju_root11@#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  mvc:
+    view:
+      prefix: /view/
+      suffix: .jsp
+
+  mail:                   # <-- This should be indented here, not under server
+    host: smtp.gmail.com
+    port: 587
+    username: comvaibhavgaikwad@gmail.com
+    password: nrgg qnff zdlj reuj
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8081
